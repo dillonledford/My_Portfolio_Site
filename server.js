@@ -60,6 +60,26 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
+// Keep Render Site Alive - No Spindown --- Script Start ---
+
+function keepAlive() {
+    if (process.env.NODE_ENV !== 'development') {
+        setTimeout(() => {
+            setInterval(() => {
+                try {
+                    axios.get('https://dillonledford.com/');
+                } catch (error) {
+                    // Ignore errors
+                }
+            }, 14 * 60 * 1000); // ping every 14 minutes
+        }, 30000); // wait 30 seconds for server to start
+    }
+}
+
+keepAlive();
+
+// Keep Render Site Alive - No Spindown --- Script End ---
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
