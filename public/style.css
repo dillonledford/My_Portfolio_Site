@@ -1,11 +1,15 @@
 :root {
     --bg-dark: #212121;
     --bg-card: #313131;
-    --text-light: #e8e8e8;
+    --text-light: #f5f5f5;
     --text-dark: #2a2a2a;
-    --accent: #3eb0f7;
+    --accent: #23b5d0;
     --bg-light: #f5f5f5;
     --bg-card-light: #ffffff;
+	--font0: 1.1rem;
+	--font1: 1.2rem;
+	--font2: 1.3rem;
+	--font-head: 2rem;
 }
 
 * {
@@ -35,6 +39,7 @@ body.light-mode {
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
     z-index: 1000;
+	font-size: var(--font1);
 }
 
 body.light-mode #navbar {
@@ -121,16 +126,18 @@ section {
 }
 
 #hero h2 {
-    font-size: 2rem;
+    font-size: var(--font-head);
     color: var(--accent);
     margin-bottom: 2rem;
 }
+
+/* Hero Link Buttons */
 
 .links {
     display: flex;
     gap: 2rem;
     justify-content: center;
-	font-size:1.2rem;
+	font-size: var(--font1);
 }
 
 .links a {
@@ -146,22 +153,45 @@ body.light-mode .links a {
     color: var(--text-dark);
 }
 
-.links a:hover {
-    background: var(--accent);
-    color: white;
+body.light-mode .links a:hover {
+    color: var(--text-light);
 }
 
+.links a:hover {
+    background: var(--accent);
+    color: var(--text-dark);
+}
+
+/* ------ */
+
 .card {
-    background: var(--bg-card);
+	/* border: 2px solid var(--bg-card); */
+    /* background: var(--bg-card); */
     padding: 2rem;
     border-radius: 20px;
     margin-bottom: 2rem;
-	font-size: 1.2rem;
+	font-size: var(--font1);
+	max-width: 800px;
 }
 
 body.light-mode .card {
-    background: var(--bg-card-light);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* background: var(--bg-card-light); */
+}
+
+.card h2 {
+	color: var(--accent);
+}
+
+.card h3 {
+	color: var(--accent);
+}
+
+.contact-card {
+    /* background: var(--bg-card); */
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+	font-size: var(--font1);
 }
 
 .project-grid {
@@ -174,22 +204,66 @@ body.light-mode .card {
     background: var(--bg-card);
     padding: 2rem;
     border-radius: 20px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, background 0.3s ease; /* Add transition to base state */
+	font-size: 1.1rem;
 }
 
+.project-card:hover {
+    transform: translateY(-10px);
+    background: var(--accent);
+}
+
+.project-card:hover h3 {
+	color: var(--bg-card);
+}
+
+body.light-mode .project-card:hover h3 {
+	color: var(--bg-light);
+}
+
+.project-card:hover a {
+	color: var(--bg-card);
+}
+
+/* card background color in light mode */
 body.light-mode .project-card {
     background: var(--bg-card-light);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+/* card background color in light mode on HOVER */
+body.light-mode .project-card:hover {
+    transform: translateY(-10px);
+    background: var(--accent);
+}
+
+/* card Links color in light mode on card HOVER*/
+body.light-mode .project-card:hover a {
+    transform: translateY(-10px);
+    color: var(--bg-light);
+}
+
+/* card Text color in light mode on card HOVER*/
+body.light-mode .project-card:hover p {
+    color: var(--bg-light);
+}
+
+/* card Text color on card HOVER*/
+.project-card:hover p {
+    color: var(--bg-card);
+}
+
+#projects h2 {
+	margin-bottom: 0.6rem;
+	text-align: center;
+	font-size: var(--font-head);
 }
 
 .project-card h3 {
     color: var(--accent);
     margin-bottom: 1rem;
-}
+	font-size: var(--font2);
+}	
 
 .tech {
     font-size: 0.9rem;
@@ -214,58 +288,76 @@ body.light-mode .project-card {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: center; /* This centers the inputs */
+}
+
+#contact h2 {
+	font-size: var(--font-head);
+	text-align: center;
 }
 
 #contact-form input,
 #contact-form textarea {
     padding: 1rem;
-    border: 2px solid var(--bg-card);
+    border: 1.6px solid var(--text-light);
     border-radius: 16px;
-    background: var(--bg-dark);
+	background: none;
     color: var(--text-light);
     font-family: inherit;
+    font-size: 1rem;
+    width: 100%; /* Full width of container */
+    max-width: 600px;
 }
 
 body.light-mode #contact-form input,
 body.light-mode #contact-form textarea {
-    background: var(--bg-light);
+	background: none;
     color: var(--text-dark);
-    border-color: #ddd;
+	border: 1.6px solid var(--text-dark);
 }
 
 #contact-form textarea {
     min-height: 150px;
     resize: vertical;
+	background: none;
 }
 
 #contact-form button {
     padding: 1rem 2rem;
-    background: var(--accent);
-    border: none;
+    background: transparent;
+    border: 2px solid var(--accent);
     border-radius: 16px;
-    color: white;
+    color: var(--text-light);
     font-size: 1rem;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: background 0.3s, color 0.3s;
+    max-width: 180px;
+    width: 100%;
+	font-size: var(--font0);
 }
 
 #contact-form button:hover {
-    opacity: 0.8;
+    background: var(--accent);
+    color: var(--text-light);
 }
 
-@media (max-width: 768px) {
-    #hero h1 {
-        font-size: 2rem;
-    }
-    
-    .nav-content {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
+#contact-form button:hover {
+    background: var(--accent);
+    color: var(--text-dark);
+}
+
+body.light-mode #contact-form button {
+    color: var(--text-dark);
+}
+
+body.light-mode #contact-form button:hover {
+    background: var(--accent);
+    color: var(--text-light);
+}
+
+.alternate-subtitle {
+	font-size: 1.3rem;
+	font-weight: bold;
 }
 
 /* --------------- Header Effects --------------- */
@@ -313,4 +405,19 @@ body.light-mode #contact-form textarea {
 }
 
 
+/* --------- Viewport --------- */
 
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: var(--font-head);
+    }
+    
+    .nav-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
