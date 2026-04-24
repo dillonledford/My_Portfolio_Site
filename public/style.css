@@ -452,4 +452,14 @@ body.light-mode #contact-form button:hover {
     .project-grid {
         grid-template-columns: 1fr;
     }
+	
+	#navbar {
+	font-size: 1rem;
+	}
+	
+	section {
+		margin-bottom: -30%;
+	}
+	
+	
 }
