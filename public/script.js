@@ -26,7 +26,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Intersection Observer for scroll animations
 
-
 const observerOptions = {
     threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
@@ -51,6 +50,11 @@ setTimeout(() => {
     document.querySelectorAll('[class*="fade-up"]').forEach(el => {
         observer.observe(el);
     });
+	
+	// Add contact form zoom-in
+    document.querySelectorAll('.zoom-in').forEach(el => {
+        observer.observe(el);
+	});
 }, 800);
 
 // Intersection Observer for scroll animations END

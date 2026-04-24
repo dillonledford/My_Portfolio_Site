@@ -209,16 +209,6 @@ body.light-mode .card {
 	color: var(--accent);
 }
 
-.contact-card {
-    /* background: var(--bg-card); */
-    padding: 2rem;
-    border-radius: 20px;
-    margin-bottom: 2rem;
-	font-size: var(--font1);
-}
-
-
-
 
 /* ------------ Projects Section ---------------- */
 
@@ -323,7 +313,7 @@ body.light-mode .project-card:hover p {
 .fade-up-6,
 .fade-up-7 {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(200px);
 }
 
 /* Staggered fade-up delays */
@@ -331,48 +321,48 @@ body.light-mode .project-card:hover p {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.2s, 
-		transform 0.6s ease 0.2s;
+		opacity 0.8s ease 0.2s, 
+		transform 0.8s ease 0.2s;
 }
 
 .fade-up-2.visible {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.35s, 
-		transform 0.6s ease 0.35s;
+		opacity 0.8s ease 0.35s, 
+		transform 0.8s ease 0.35s;
 }
 
 .fade-up-3.visible {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.5s, 
-		transform 0.6s ease 0.5s;
+		opacity 0.8s ease 0.5s, 
+		transform 0.8s ease 0.5s;
 }
 
 .fade-up-4.visible {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.65s, 
-		transform 0.6s ease 0.65s;
+		opacity 0.8s ease 0.65s, 
+		transform 0.8s ease 0.65s;
 }
 
 .fade-up-5.visible {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.35s, 
-		transform 0.6s ease 0.35s;
+		opacity 0.8s ease 0.35s, 
+		transform 0.8s ease 0.35s;
 }
 
 .fade-up-6.visible {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.5s, 
-		transform 0.6s ease 0.5s;
+		opacity 0.8s ease 0.5s, 
+		transform 0.8s ease 0.5s;
 }
 
 
@@ -380,11 +370,24 @@ body.light-mode .project-card:hover p {
     opacity: 1;
     transform: translateY(0);
     transition: 
-		opacity 0.6s ease 0.65s, 
-		transform 0.6s ease 0.65s;
+		opacity 0.8s ease 0.65s, 
+		transform 0.8s ease 0.65s;
 }
 
 /* ------------ Projects Section END ---------------- */
+
+
+
+
+/* ------ CONTACT FORM ------ */
+
+.contact-card {
+    /* background: var(--bg-card); */
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+	font-size: var(--font1);
+}
 
 #contact-form {
     display: flex;
@@ -456,6 +459,9 @@ body.light-mode #contact-form button:hover {
     background: var(--accent);
     color: var(--text-light);
 }
+
+/* ------ CONTACT END ----- */
+
 
 .alternate-subtitle {
 	font-size: 1.3rem;
@@ -658,6 +664,21 @@ body.light-mode #contact-form button:hover {
 /* =========================================== */
 
 /* Cards slide in left END ---------------------------------*/
+
+/* Contact form zoom-in animation - INITIAL HIDDEN STATE */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Revealed state - grows to full size */
+.zoom-in.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: 
+        opacity 0.8s ease 0.2s,
+        transform 0.8s ease 0.2s;
+}
 
 /* --------- Mobile Viewport Start ------------------- */
 
