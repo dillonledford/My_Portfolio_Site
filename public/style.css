@@ -227,9 +227,35 @@ body.light-mode .card {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
     background: var(--accent);
 }
+
+/* Raise and Lower Project Cards */
+
+.project-card.fade-up-2:hover,
+.project-card.fade-up-3:hover,
+.project-card.fade-up-4:hover,
+.project-card.fade-up-5:hover,
+.project-card.fade-up-6:hover,
+.project-card.fade-up-7:hover {
+    transform: translateY(-18px);
+    transition: transform 0.3s ease, 
+				background 0.6s ease, 
+				opacity 0.3s ease !important;
+}
+
+.project-card.fade-up-2.visible,
+.project-card.fade-up-3.visible,
+.project-card.fade-up-4.visible,
+.project-card.fade-up-5.visible,
+.project-card.fade-up-6.visible,
+.project-card.fade-up-7.visible {
+    transition: transform 0.4s ease, 
+				background 0.6s ease, 
+				opacity 0.8s ease !important;
+}
+
+/* Raise and Lower Project Cards END */
 
 .project-card:hover h3 {
 	color: var(--bg-card);
@@ -272,7 +298,7 @@ body.light-mode .project-card:hover p {
 }
 
 #projects h2 {
-	margin-bottom: 0.6rem;
+	margin-bottom: 1.2rem;
 	text-align: center;
 	font-size: var(--font-head);
 }
@@ -524,6 +550,7 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-1_2,
 .slide-in-left-body-1_3,
 .slide-in-left-body-2,
+.slide-in-left-body-2_2,
 .slide-in-left-body-3,
 .slide-in-left-body-3_2 {
     opacity: 0;
@@ -560,8 +587,8 @@ body.light-mode #contact-form button:hover {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 0.7s,  /* waits 0.4s */
-        transform 0.8s ease 0.7s;
+        opacity 0.8s ease 0.8s,  /* waits 0.4s */
+        transform 0.8s ease 0.8s;
 }
 
 /* =========================================== */
@@ -571,7 +598,9 @@ body.light-mode #contact-form button:hover {
 /* NOTE: Titles and their Bodies cannot overlap in timing. Title1 and Body1 take up 0s-0.4s,
 /*       so then Title2 and Body2 must begin at 0.5s to avoid overlap
 
-/* --- body --- 1 */
+
+
+/* --- body ----------------------------- 1 */
 
 .slide-in-left-body-1.visible {
     opacity: 1;
@@ -597,17 +626,29 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 0.4s;
 }
 
-/* --- body --- 2 */
+
+
+/* --- body ----------------------------- 2 */
 
 .slide-in-left-body-2.visible {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 0.8s,
-        transform 0.8s ease 0.8s;
+        opacity 0.8s ease 0.6s,
+        transform 0.8s ease 0.6s;
 }
 
-/* --- body --- 3 */
+.slide-in-left-body-2_2.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.7s,
+        transform 0.8s ease 0.7s;
+}
+
+
+
+/* --- body ----------------------------- 3 */
 
 .slide-in-left-body-3.visible {
     opacity: 1;
@@ -640,6 +681,7 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-1_2,
 .slide-in-left-body-1_3,
 .slide-in-left-body-2,
+.slide-in-left-body-2_2,
 .slide-in-left-body-3,
 .slide-in-left-body-3_2 {
     margin-top: 0;
@@ -651,6 +693,7 @@ body.light-mode #contact-form button:hover {
 /* SPACING - First body in each group connects to title */
 .slide-in-left-body-1,
 .slide-in-left-body-2,
+.slide-in-left-body-2_2,
 .slide-in-left-body-3 {
     padding-top: 10px;
 }
