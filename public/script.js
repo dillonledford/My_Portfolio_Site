@@ -25,6 +25,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Intersection Observer for scroll animations
+
+
 const observerOptions = {
     threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
@@ -38,12 +40,18 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Wait 1.5 seconds before observing (let hero finish first)
+// Wait for hero to finish first
 setTimeout(() => {
-    document.querySelectorAll('.slide-in-left').forEach(el => {
+    // Select ALL elements that have a class starting with 'slide-in-left'
+    document.querySelectorAll('[class*="slide-in-left"]').forEach(el => {
         observer.observe(el);
     });
-}, 800); // Hero finishes around 1.3s, this gives slight buffer - 1300 would be 1.3s
+    
+    // Add project cards to observer
+    document.querySelectorAll('[class*="fade-up"]').forEach(el => {
+        observer.observe(el);
+    });
+}, 800);
 
 // Intersection Observer for scroll animations END
 

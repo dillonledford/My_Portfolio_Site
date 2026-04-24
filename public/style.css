@@ -106,18 +106,42 @@ body.light-mode .theme-toggle {
     transform: translateX(30px);
 }
 
+
+/* Base rule for all sections */
 section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
-    min-height: 60vh;
     display: flex;
     flex-direction: column;
+}
+
+/* Hero section - tall and centered */
+section.hero {
+    min-height: 100vh;
     justify-content: center;
 }
 
+/* Hero section - tall and centered */
+section#hero {
+    padding-top: 8rem;      /* distance from navbar/top */
+    padding-bottom: 2rem;   /* distance to cards below */
+}
+
+/* Content sections - tighter spacing */
+section#about,
+section#projects,
+section#contact {
+    padding: 2rem 2rem;
+    min-height: auto;
+    justify-content: flex-start;
+}
+
+/* all sections end */
+
 #hero {
     text-align: center;
+	padding-bottom: 0;
 }
 
 #hero h1 {
@@ -192,6 +216,11 @@ body.light-mode .card {
     margin-bottom: 2rem;
 	font-size: var(--font1);
 }
+
+
+
+
+/* ------------ Projects Section ---------------- */
 
 .project-grid {
     display: grid;
@@ -282,6 +311,80 @@ body.light-mode .project-card:hover p {
 .project-card a:hover {
     opacity: 0.7;
 }
+
+/* ---------- Scroll in PROJECTS ---------- */
+
+/* Project cards fade-up animation - INITIAL HIDDEN STATE */
+.fade-up-1,
+.fade-up-2,
+.fade-up-3,
+.fade-up-4,
+.fade-up-5,
+.fade-up-6,
+.fade-up-7 {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Staggered fade-up delays */
+.fade-up-1.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.2s, 
+		transform 0.6s ease 0.2s;
+}
+
+.fade-up-2.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.35s, 
+		transform 0.6s ease 0.35s;
+}
+
+.fade-up-3.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.5s, 
+		transform 0.6s ease 0.5s;
+}
+
+.fade-up-4.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.65s, 
+		transform 0.6s ease 0.65s;
+}
+
+.fade-up-5.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.35s, 
+		transform 0.6s ease 0.35s;
+}
+
+.fade-up-6.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.5s, 
+		transform 0.6s ease 0.5s;
+}
+
+
+.fade-up-7.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+		opacity 0.6s ease 0.65s, 
+		transform 0.6s ease 0.65s;
+}
+
+/* ------------ Projects Section END ---------------- */
 
 #contact-form {
     display: flex;
@@ -403,41 +506,160 @@ body.light-mode #contact-form button:hover {
 		transform 0.8s ease 0.5s;
 }
 
-/* Cards slide in left */
+/* Cards slide in left -------------------------------------*/
 
-/* Initial hidden state - off screen left */ /* body text */
-.slide-in-left {
+/* =========================================== */
+
+/* Cards slide in left - INITIAL HIDDEN STATE */
+.slide-in-left-title-1,
+.slide-in-left-title-2,
+.slide-in-left-title-3,
+.slide-in-left-body-1,
+.slide-in-left-body-1_2,
+.slide-in-left-body-1_3,
+.slide-in-left-body-2,
+.slide-in-left-body-3,
+.slide-in-left-body-3_2 {
     opacity: 0;
-    transform: translateX(200px); /* slides body */
+    transform: translateX(-200px);
 }
 
-/* Revealed state */ /* body text */
-.slide-in-left.visible {
+/* =========================================== */
+
+/* TITLES - staggered so they don't all slide at once */
+
+/* title 1 */
+
+.slide-in-left-title-1.visible {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-		opacity 0.8s ease 0.5s, 
-		transform 0.8s ease 0.5s;
+        opacity 0.8s ease 0.0s,
+        transform 0.8s ease 0.0s;
 }
 
-/* Initial hidden state - off screen left */ /* header text */
-.slide-in-left h2,
-.slide-in-left h3 {
-    opacity: 0;
-    transform: translateX(0px); /* slides title */
-}
+/* title 2 */
 
-/* Revealed state */ /* header text */
-.slide-in-left.visible h2,
-.slide-in-left.visible h3 {
+.slide-in-left-title-2.visible {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-		opacity 0.8s ease 0.5s, 
-		transform 0.8s ease 0.5s;
+        opacity 0.8s ease 0.5s,  /* waits 0.2s */
+        transform 0.8s ease 0.5s;
 }
 
-/* --------- Viewport Start --------- */
+/* title 3 */
+
+.slide-in-left-title-3.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.7s,  /* waits 0.4s */
+        transform 0.8s ease 0.7s;
+}
+
+/* =========================================== */
+
+/* BODIES - staggered cascade delays */
+
+/* NOTE: Titles and their Bodies cannot overlap in timing. Title1 and Body1 take up 0s-0.4s,
+/*       so then Title2 and Body2 must begin at 0.5s to avoid overlap
+
+/* --- body --- 1 */
+
+.slide-in-left-body-1.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.2s,  /* comes 0.3s after title */
+        transform 0.8s ease 0.2s;
+}
+
+.slide-in-left-body-1_2.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.3s,  /* comes 0.3s after body-1 */
+        transform 0.8s ease 0.3s;
+}
+
+.slide-in-left-body-1_3.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.4s,  /* comes 0.3s after body-1_2 */
+        transform 0.8s ease 0.4s;
+}
+
+/* --- body --- 2 */
+
+.slide-in-left-body-2.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.8s,
+        transform 0.8s ease 0.8s;
+}
+
+/* --- body --- 3 */
+
+.slide-in-left-body-3.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.9s,
+        transform 0.8s ease 0.9s;
+}
+
+.slide-in-left-body-3_2.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 1.0s,  /* comes 0.3s after body-3 */
+        transform 0.8s ease 1.0s;
+}
+
+/* =========================================== */
+
+/* SPACING - Titles */
+.slide-in-left-title-1,
+.slide-in-left-title-2,
+.slide-in-left-title-3 {
+    margin-bottom: 0;
+    padding-bottom: 10px; /* gap between title and first body */
+}
+
+/* SPACING - All body elements tight together */
+.slide-in-left-body-1,
+.slide-in-left-body-1_2,
+.slide-in-left-body-1_3,
+.slide-in-left-body-2,
+.slide-in-left-body-3,
+.slide-in-left-body-3_2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.5rem;    /* tight line spacing between subsections */
+    padding-bottom: 0.5rem;
+}
+
+/* SPACING - First body in each group connects to title */
+.slide-in-left-body-1,
+.slide-in-left-body-2,
+.slide-in-left-body-3 {
+    padding-top: 10px;
+}
+
+/* SPACING - Last body in each group gets space before next title */
+.slide-in-left-body-1_3,
+.slide-in-left-body-3_2 {
+    margin-bottom: 2rem;
+}
+
+/* =========================================== */
+
+/* Cards slide in left END ---------------------------------*/
+
+/* --------- Mobile Viewport Start ------------------- */
 
 @media (max-width: 768px) {
     #hero h1 {
@@ -460,6 +682,5 @@ body.light-mode #contact-form button:hover {
 	section {
 		margin-bottom: -30%;
 	}
-	
-	
+
 }
