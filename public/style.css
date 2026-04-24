@@ -47,7 +47,7 @@ body.light-mode #navbar {
 }
 
 .nav-content {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     gap: 2rem;
@@ -110,7 +110,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +171,6 @@ body.light-mode .links a:hover {
     border-radius: 20px;
     margin-bottom: 2rem;
 	font-size: var(--font1);
-	max-width: 800px;
 }
 
 body.light-mode .card {
@@ -404,8 +403,41 @@ body.light-mode #contact-form button:hover {
 		transform 0.8s ease 0.5s;
 }
 
+/* Cards slide in left */
 
-/* --------- Viewport --------- */
+/* Initial hidden state - off screen left */ /* body text */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(200px); /* slides body */
+}
+
+/* Revealed state */ /* body text */
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+		opacity 0.8s ease 0.5s, 
+		transform 0.8s ease 0.5s;
+}
+
+/* Initial hidden state - off screen left */ /* header text */
+.slide-in-left h2,
+.slide-in-left h3 {
+    opacity: 0;
+    transform: translateX(0px); /* slides title */
+}
+
+/* Revealed state */ /* header text */
+.slide-in-left.visible h2,
+.slide-in-left.visible h3 {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+		opacity 0.8s ease 0.5s, 
+		transform 0.8s ease 0.5s;
+}
+
+/* --------- Viewport Start --------- */
 
 @media (max-width: 768px) {
     #hero h1 {

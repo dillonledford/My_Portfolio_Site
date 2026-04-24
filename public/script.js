@@ -24,6 +24,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Wait 1.5 seconds before observing (let hero finish first)
+setTimeout(() => {
+    document.querySelectorAll('.slide-in-left').forEach(el => {
+        observer.observe(el);
+    });
+}, 800); // Hero finishes around 1.3s, this gives slight buffer - 1300 would be 1.3s
+
+// Intersection Observer for scroll animations END
+
 // Contact form
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
@@ -151,3 +174,4 @@ window.addEventListener('resize', () => {
 // Start
 init();
 animate();
+
