@@ -811,9 +811,15 @@ body.light-mode #contact-form button:hover {
     
     /* === CARDS === */
     .card {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        font-size: 1rem;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+	
+	.card h3 {
+        font-size: 1.4rem;
+		text-align: center;
+		padding-top: 2rem;
     }
     
     .alternate-subtitle {
@@ -862,6 +868,7 @@ body.light-mode #contact-form button:hover {
     
     #contact h2 {
         font-size: 1.8rem;
+		padding-bottom: 1rem;
     }
     
     #contact-form input,
