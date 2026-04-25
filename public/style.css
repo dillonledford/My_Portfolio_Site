@@ -761,7 +761,7 @@ body.light-mode #contact-form button:hover {
     }
     
     .nav-content a {
-        font-size: 0.9rem;
+        font-size: 1.6rem;
     }
     
     /* Move theme toggle to its own row */
@@ -777,7 +777,7 @@ body.light-mode #contact-form button:hover {
     }
     
     #hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-bottom: 0.5rem;
     }
     
@@ -787,13 +787,12 @@ body.light-mode #contact-form button:hover {
     }
     
     .links {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
         align-items: center;
     }
     
     .links a {
-        width: 200px;
+        width: 120px;
         text-align: center;
         font-size: 1rem;
     }
@@ -819,7 +818,7 @@ body.light-mode #contact-form button:hover {
 	.card h3 {
         font-size: 1.6rem;
 		text-align: center;
-		padding-top: 2rem;
+		padding-top: 3rem;
     }
     
     .alternate-subtitle {
@@ -834,11 +833,11 @@ body.light-mode #contact-form button:hover {
     /* === PROJECTS === */
     #projects h2 {
         font-size: 1.8rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.8rem;
+		padding-top: 0.8rem;
     }
-    
+
     .project-grid {
-        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
@@ -935,11 +934,11 @@ body.light-mode #contact-form button:hover {
 @media (max-width: 480px) {
     
     #hero h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     
     #hero h2 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
     
     .nav-content {
@@ -947,11 +946,11 @@ body.light-mode #contact-form button:hover {
     }
     
     .nav-content a {
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
     
     .card {
-        padding: 1rem;
+        padding: 0.5rem;
     }
     
     .project-card {
