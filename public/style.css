@@ -43,7 +43,7 @@ body.light-mode {
 }
 
 body.light-mode #navbar {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.345);
 }
 
 .nav-content {
@@ -723,28 +723,254 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 0.2s;
 }
 
-/* --------- Mobile Viewport Start ------------------- */
+
+
+
+/* adjust page link position */
+
+#projects {
+  scroll-margin-top: 40px;
+}
+
+
+#about {
+  scroll-margin-top: 40px;
+}
+
+#contact {
+}
+
+
+
+/* ========================================= */
+/* MOBILE RESPONSIVE STYLES - ADD TO END OF style.css */
+/* Desktop styles remain completely untouched above */
+/* ========================================= */
 
 @media (max-width: 768px) {
-    #hero h1 {
-        font-size: var(--font-head);
+    
+    /* === NAVIGATION === */
+    #navbar {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
     }
     
     .nav-content {
-        flex-wrap: wrap;
         gap: 1rem;
+        justify-content: center;
+    }
+    
+    .nav-content a {
+        font-size: 0.9rem;
+    }
+    
+    /* Move theme toggle to its own row */
+    .theme-toggle {
+        margin-left: 0;
+        order: 10; /* Push to end */
+    }
+    
+    /* === HERO SECTION === */
+    section#hero {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    
+    #hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #hero h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .links {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .links a {
+        width: 200px;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    /* === SECTIONS === */
+    section {
+        padding: 2rem 1rem;
+    }
+    
+    section#about,
+    section#projects,
+    section#contact {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* === CARDS === */
+    .card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .alternate-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Remove line breaks in card text for mobile */
+    .card p br {
+        display: none;
+    }
+    
+    /* === PROJECTS === */
+    #projects h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
     }
     
     .project-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-	
-	#navbar {
-	font-size: 1rem;
-	}
-	
-	section {
-		margin-bottom: -30%;
-	}
-
+    
+    .project-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .project-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    /* Reduce hover lift on mobile for better touch UX */
+    .project-card.fade-up-2:hover,
+    .project-card.fade-up-3:hover,
+    .project-card.fade-up-4:hover,
+    .project-card.fade-up-5:hover,
+    .project-card.fade-up-6:hover,
+    .project-card.fade-up-7:hover {
+        transform: translateY(-8px);
+    }
+    
+    /* === CONTACT FORM === */
+    .contact-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    #contact h2 {
+        font-size: 1.8rem;
+    }
+    
+    #contact-form input,
+    #contact-form textarea {
+        padding: 0.8rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        max-width: 100%;
+    }
+    
+    #contact-form textarea {
+        min-height: 120px;
+    }
+    
+    #contact-form button {
+        padding: 0.8rem 1.5rem;
+        max-width: 160px;
+        font-size: 1rem;
+    }
+    
+    /* reCAPTCHA scaling */
+    .g-recaptcha {
+        transform: scale(0.85);
+        transform-origin: 0 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* === ANIMATIONS === */
+    /* Reduce animation distances on mobile */
+    #hero h1,
+    #hero h2,
+    #hero .links {
+        transform: translateY(50px);
+    }
+    
+    .fade-up-1,
+    .fade-up-2,
+    .fade-up-3,
+    .fade-up-4,
+    .fade-up-5,
+    .fade-up-6,
+    .fade-up-7 {
+        transform: translateY(80px);
+    }
+    
+    .slide-in-left-title-1,
+    .slide-in-left-title-2,
+    .slide-in-left-title-3,
+    .slide-in-left-body-1,
+    .slide-in-left-body-1_2,
+    .slide-in-left-body-1_3,
+    .slide-in-left-body-2,
+    .slide-in-left-body-2_2,
+    .slide-in-left-body-3,
+    .slide-in-left-body-3_2 {
+        transform: translateX(-100px);
+    }
+    
+    /* === PARTICLE BACKGROUND === */
+    /* Reduce particle count on mobile for performance */
+    /* This will need a JS adjustment - see notes below */
 }
+
+/* === EXTRA SMALL DEVICES === */
+@media (max-width: 480px) {
+    
+    #hero h1 {
+        font-size: 2rem;
+    }
+    
+    #hero h2 {
+        font-size: 1.2rem;
+    }
+    
+    .nav-content {
+        gap: 0.8rem;
+    }
+    
+    .nav-content a {
+        font-size: 0.85rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .project-card {
+        padding: 1.25rem;
+    }
+    
+    .g-recaptcha {
+        transform: scale(0.77);
+    }
+}
+
+/* === LANDSCAPE MOBILE === */
+@media (max-width: 768px) and (orientation: landscape) {
+    
+    section#hero {
+        padding-top: 5rem;
+        min-height: auto;
+    }
+    
+    #hero h1 {
+        font-size: 2rem;
+    }
+    
+    #hero h2 {
+        font-size: 1.3rem;
+    }
+}
+
+

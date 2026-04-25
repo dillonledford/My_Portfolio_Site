@@ -111,7 +111,13 @@ window.addEventListener('load', () => {
 });
 
 
-// Particle background
+
+// ====================================================
+// MOBILE PARTICLE OPTIMIZATION
+// Replace the existing particle section in script.js
+// ====================================================
+
+// Particle background with mobile optimization
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 document.body.prepend(canvas);
@@ -125,7 +131,16 @@ canvas.style.zIndex = '-1';
 canvas.style.pointerEvents = 'none';
 
 const particles = [];
-const particleCount = 80; // adjust this for density
+
+// Responsive particle count based on screen size
+function getParticleCount() {
+    if (window.innerWidth < 480) return 30;  // Extra small mobile
+    if (window.innerWidth < 768) return 50;  // Mobile
+    if (window.innerWidth < 1024) return 65; // Tablet
+    return 80; // Desktop
+}
+
+let particleCount = getParticleCount();
 
 class Particle {
     constructor() {
@@ -159,6 +174,7 @@ class Particle {
 // Initialize particles
 function init() {
     particles.length = 0;
+    particleCount = getParticleCount();
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
@@ -176,14 +192,29 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// Handle resize
+// Handle resize with debouncing for better performance
+let resizeTimeout;
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    init();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    }, 250);
+});
+
+// Pause animations when page is not visible (battery saving)
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Page is hidden, could pause animation here
+    } else {
+        // Page is visible again, resume
+        animate();
+    }
 });
 
 // Start
 init();
 animate();
+
 
