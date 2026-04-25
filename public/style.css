@@ -777,12 +777,12 @@ body.light-mode #contact-form button:hover {
     }
     
     #hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin-bottom: 0.5rem;
     }
     
     #hero h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin-bottom: 1.5rem;
     }
     
@@ -813,11 +813,11 @@ body.light-mode #contact-form button:hover {
     .card {
         padding: 0.5rem;
         margin-bottom: 0.5rem;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 	
 	.card h3 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
 		text-align: center;
 		padding-top: 2rem;
     }
