@@ -932,6 +932,10 @@ body.light-mode #contact-form button:hover {
 
 /* === EXTRA SMALL DEVICES === */
 @media (max-width: 480px) {
+	
+	.theme-toggle input:checked + .slider {
+		transform: translateX(16px);
+	}
     
     #hero h1 {
         font-size: 3rem;
