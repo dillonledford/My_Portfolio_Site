@@ -106,7 +106,6 @@ body.light-mode .theme-toggle {
     transform: translateX(30px);
 }
 
-
 /* Base rule for all sections */
 section {
     max-width: 1200px;
@@ -125,7 +124,7 @@ section.hero {
 /* Hero section - tall and centered */
 section#hero {
     padding-top: 8rem;      /* distance from navbar/top */
-    padding-bottom: 2rem;   /* distance to cards below */
+    padding-bottom: 4rem;   /* distance to cards below */
 }
 
 /* Content sections - tighter spacing */
@@ -191,7 +190,10 @@ body.light-mode .links a:hover {
 .card {
 	/* border: 2px solid var(--bg-card); */
     /* background: var(--bg-card); */
-    padding: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
     border-radius: 20px;
     margin-bottom: 2rem;
 	font-size: var(--font1);
@@ -209,7 +211,6 @@ body.light-mode .card {
 	color: var(--accent);
 }
 
-
 /* ------------ Projects Section ---------------- */
 
 .project-grid {
@@ -221,9 +222,10 @@ body.light-mode .card {
 .project-card {
     background: var(--bg-card);
     padding: 2rem;
-    border-radius: 20px;
-    transition: transform 0.3s ease, background 0.3s ease; /* Add transition to base state */
 	font-size: 1.1rem;
+    border-radius: 20px;
+    transition: transform 0.8s ease, 
+				background 0.8s ease; /* Add transition to base state */
 }
 
 .project-card:hover {
@@ -239,9 +241,9 @@ body.light-mode .card {
 .project-card.fade-up-6:hover,
 .project-card.fade-up-7:hover {
     transform: translateY(-18px);
-    transition: transform 0.3s ease, 
+    transition: transform 0.6s ease, 
 				background 0.6s ease, 
-				opacity 0.3s ease !important;
+				opacity 0.6s ease !important;
 }
 
 .project-card.fade-up-2.visible,
@@ -250,9 +252,9 @@ body.light-mode .card {
 .project-card.fade-up-5.visible,
 .project-card.fade-up-6.visible,
 .project-card.fade-up-7.visible {
-    transition: transform 0.4s ease, 
+    transition: transform 0.6s ease, 
 				background 0.6s ease, 
-				opacity 0.8s ease !important;
+				opacity 0.6s ease !important;
 }
 
 /* Raise and Lower Project Cards END */
@@ -401,9 +403,6 @@ body.light-mode .project-card:hover p {
 }
 
 /* ------------ Projects Section END ---------------- */
-
-
-
 
 /* ------ CONTACT FORM ------ */
 
@@ -557,11 +556,11 @@ body.light-mode #contact-form button:hover {
     transform: translateX(-200px);
 }
 
-/* =========================================== */
+/* ============ Card Titles & Bodies ================= */
+/* NOTE: Titles and their Bodies cannot overlap in timing. Title1 and Body1 take up 0s-0.4s,
+/*       so then Title2 and Body2 must begin at 0.5s to avoid overlap
 
-/* TITLES - staggered so they don't all slide at once */
-
-/* title 1 */
+/* ------------------ Title & Body 1 ------------------ */
 
 .slide-in-left-title-1.visible {
     opacity: 1;
@@ -570,37 +569,6 @@ body.light-mode #contact-form button:hover {
         opacity 0.8s ease 0.0s,
         transform 0.8s ease 0.0s;
 }
-
-/* title 2 */
-
-.slide-in-left-title-2.visible {
-    opacity: 1;
-    transform: translateX(0px);
-    transition: 
-        opacity 0.8s ease 0.5s,  /* waits 0.2s */
-        transform 0.8s ease 0.5s;
-}
-
-/* title 3 */
-
-.slide-in-left-title-3.visible {
-    opacity: 1;
-    transform: translateX(0px);
-    transition: 
-        opacity 0.8s ease 0.8s,  /* waits 0.4s */
-        transform 0.8s ease 0.8s;
-}
-
-/* =========================================== */
-
-/* BODIES - staggered cascade delays */
-
-/* NOTE: Titles and their Bodies cannot overlap in timing. Title1 and Body1 take up 0s-0.4s,
-/*       so then Title2 and Body2 must begin at 0.5s to avoid overlap
-
-
-
-/* --- body ----------------------------- 1 */
 
 .slide-in-left-body-1.visible {
     opacity: 1;
@@ -626,9 +594,15 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 0.4s;
 }
 
+/* ------------------ Title & Body 2 ------------------ */
 
-
-/* --- body ----------------------------- 2 */
+.slide-in-left-title-2.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.5s,  /* waits 0.2s */
+        transform 0.8s ease 0.5s;
+}
 
 .slide-in-left-body-2.visible {
     opacity: 1;
@@ -646,9 +620,15 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 0.7s;
 }
 
+/* ------------------ Title & Body 3 ------------------ */
 
-
-/* --- body ----------------------------- 3 */
+.slide-in-left-title-3.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.8s,  /* waits 0.4s */
+        transform 0.8s ease 0.8s;
+}
 
 .slide-in-left-body-3.visible {
     opacity: 1;
@@ -666,7 +646,8 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 1.0s;
 }
 
-/* =========================================== */
+/* ============ Card Titles & Bodies END ================= */
+
 
 /* SPACING - Titles */
 .slide-in-left-title-1,
@@ -723,24 +704,18 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 0.2s;
 }
 
-
-
-
 /* adjust page link position */
 
 #projects {
   scroll-margin-top: 40px;
 }
 
-
 #about {
-  scroll-margin-top: 40px;
+  scroll-margin-top: 28px;
 }
 
 #contact {
 }
-
-
 
 /* ========================================= */
 /* MOBILE RESPONSIVE STYLES - ADD TO END OF style.css */
@@ -924,6 +899,11 @@ body.light-mode #contact-form button:hover {
     .slide-in-left-body-3_2 {
         transform: translateX(-100px);
     }
+	
+	
+	#about {
+		scroll-margin-top: 0px;
+	}
     
     /* === PARTICLE BACKGROUND === */
     /* Reduce particle count on mobile for performance */
@@ -964,6 +944,11 @@ body.light-mode #contact-form button:hover {
     .g-recaptcha {
         transform: scale(0.77);
     }
+	
+	#about {
+	  scroll-margin-top: -30px;
+	}
+
 }
 
 /* === LANDSCAPE MOBILE === */
@@ -981,6 +966,7 @@ body.light-mode #contact-form button:hover {
     #hero h2 {
         font-size: 1.3rem;
     }
+
 }
 
 
