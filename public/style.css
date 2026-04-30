@@ -560,6 +560,8 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-2_2,
 .slide-in-left-body-3,
 .slide-in-left-body-3_2,
+.slide-in-left-body-3_3,
+.slide-in-left-body-3_4,
 .slide-in-left-body-4 {
     opacity: 0;
     transform: translateX(-200px);
@@ -655,6 +657,22 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 1.0s;
 }
 
+.slide-in-left-body-3_3.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 1.0s,  /* comes 0.3s after body-3 */
+        transform 0.8s ease 1.0s;
+}
+
+.slide-in-left-body-3_4.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 1.0s,  /* comes 0.3s after body-3 */
+        transform 0.8s ease 1.0s;
+}
+
 
 /* ------------------ Title & Body 4 ------------------ */
 
@@ -698,6 +716,8 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-2_2,
 .slide-in-left-body-3,
 .slide-in-left-body-3_2,
+.slide-in-left-body-3_3,
+.slide-in-left-body-3_4,
 .slide-in-left-body-4 {
     margin-top: 0;
     margin-bottom: 0;
@@ -717,7 +737,7 @@ body.light-mode #contact-form button:hover {
 /* SPACING - Last body in each group gets space before next title */
 .slide-in-left-body-1_3,
 .slide-in-left-body-2_2,
-.slide-in-left-body-3_2,
+.slide-in-left-body-3_4,
 .slide-in-left-body-4 {
     margin-bottom: 2rem;
 }
@@ -935,6 +955,8 @@ body.light-mode #contact-form button:hover {
     .slide-in-left-body-2_2,
     .slide-in-left-body-3,
     .slide-in-left-body-3_2,
+	.slide-in-left-body-3_3,
+	.slide-in-left-body-3_4,
     .slide-in-left-body-4 {
         transform: translateX(-100px);
     }
