@@ -199,6 +199,13 @@ body.light-mode .links a:hover {
 	font-size: var(--font1);
 }
 
+
+.card li {
+	padding-top: 0.4rem;
+	padding-bottom:0.4rem;
+}
+
+
 body.light-mode .card {
     /* background: var(--bg-card-light); */
 }
@@ -545,13 +552,15 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-title-1,
 .slide-in-left-title-2,
 .slide-in-left-title-3,
+.slide-in-left-title-4,
 .slide-in-left-body-1,
 .slide-in-left-body-1_2,
 .slide-in-left-body-1_3,
 .slide-in-left-body-2,
 .slide-in-left-body-2_2,
 .slide-in-left-body-3,
-.slide-in-left-body-3_2 {
+.slide-in-left-body-3_2,
+.slide-in-left-body-4 {
     opacity: 0;
     transform: translateX(-200px);
 }
@@ -646,13 +655,37 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 1.0s;
 }
 
+
+/* ------------------ Title & Body 4 ------------------ */
+
+
+.slide-in-left-title-4.visible {
+	padding-bottom: -0.4rem !important;
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.8s,  /* waits 0.4s */
+        transform 0.8s ease 0.8s;
+}
+
+.slide-in-left-body-4.visible {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 
+        opacity 0.8s ease 0.9s,
+        transform 0.8s ease 0.9s;
+}
+
+
+
 /* ============ Card Titles & Bodies END ================= */
 
 
 /* SPACING - Titles */
 .slide-in-left-title-1,
 .slide-in-left-title-2,
-.slide-in-left-title-3 {
+.slide-in-left-title-3,
+.slide-in-left-title-4 {
     margin-bottom: 0;
     padding-bottom: 10px; /* gap between title and first body */
 }
@@ -664,7 +697,8 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-2,
 .slide-in-left-body-2_2,
 .slide-in-left-body-3,
-.slide-in-left-body-3_2 {
+.slide-in-left-body-3_2,
+.slide-in-left-body-4 {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0.5rem;    /* tight line spacing between subsections */
@@ -675,13 +709,16 @@ body.light-mode #contact-form button:hover {
 .slide-in-left-body-1,
 .slide-in-left-body-2,
 .slide-in-left-body-2_2,
-.slide-in-left-body-3 {
+.slide-in-left-body-3,
+.slide-in-left-body-4 {
     padding-top: 10px;
 }
 
 /* SPACING - Last body in each group gets space before next title */
 .slide-in-left-body-1_3,
-.slide-in-left-body-3_2 {
+.slide-in-left-body-2_2,
+.slide-in-left-body-3_2,
+.slide-in-left-body-4 {
     margin-bottom: 2rem;
 }
 
@@ -890,15 +927,19 @@ body.light-mode #contact-form button:hover {
     .slide-in-left-title-1,
     .slide-in-left-title-2,
     .slide-in-left-title-3,
+	.slide-in-left-title-4,
     .slide-in-left-body-1,
     .slide-in-left-body-1_2,
     .slide-in-left-body-1_3,
     .slide-in-left-body-2,
     .slide-in-left-body-2_2,
     .slide-in-left-body-3,
-    .slide-in-left-body-3_2 {
+    .slide-in-left-body-3_2,
+    .slide-in-left-body-4 {
         transform: translateX(-100px);
     }
+	
+	
 	
 	
 	#about {
@@ -936,6 +977,7 @@ body.light-mode #contact-form button:hover {
     .card {
         padding: 0.5rem;
     }
+	
     
     .project-card {
         padding: 1.25rem;
