@@ -142,11 +142,13 @@ function getParticleCount() {
 
 let particleCount = getParticleCount();
 
+
+
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
+        this.size = Math.random() * 50 + 10;
         this.speedX = (Math.random() - 0.5) * 0.5;
         this.speedY = (Math.random() - 0.5) * 0.5;
         this.opacity = Math.random() * 0.5 + 0.2;
@@ -156,20 +158,30 @@ class Particle {
         this.x += this.speedX;
         this.y += this.speedY;
         
-        // Wrap around edges
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        // Wrap around edges WITH buffer for particle size
+        if (this.x > canvas.width + this.size) this.x = -this.size;
+        if (this.x < -this.size) this.x = canvas.width + this.size;
+        if (this.y > canvas.height + this.size) this.y = -this.size;
+        if (this.y < -this.size) this.y = canvas.height + this.size;
     }
-    
-    draw() {
-        ctx.fillStyle = `rgba(62, 176, 247, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+
+	draw() {
+		// Check if body has light-mode class
+		const isLightMode = document.body.classList.contains('light-mode');
+		
+		// Use white particles in light mode, dark particles in dark mode
+		ctx.fillStyle = isLightMode 
+			? `rgba(255, 255, 255, ${this.opacity})` 
+			: `rgba(49, 49, 49, ${this.opacity})`;
+		
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+		ctx.fill();
+	}
+
 }
+
+
 
 // Initialize particles
 function init() {
@@ -216,5 +228,4 @@ document.addEventListener('visibilitychange', () => {
 // Start
 init();
 animate();
-
 
