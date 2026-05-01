@@ -219,28 +219,68 @@ body.light-mode .card {
 }
 
 /* ------------ Projects Section ---------------- */
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    grid-auto-rows: 1fr;
 }
-
 .project-card {
     background: var(--bg-card);
     padding: 2rem;
-	font-size: 1.1rem;
+    font-size: 1.1rem;
     border-radius: 20px;
-    transition: transform 0.8s ease, 
-				background 0.8s ease; /* Add transition to base state */
+    transition: transform 0.8s ease, background 0.8s ease;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-links a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.card-links a:hover {
+    opacity: 0.7;
 }
 
 .project-card:hover {
     background: var(--accent);
 }
-
-/* Raise and Lower Project Cards */
-
+.project-card:hover h3 {
+    color: var(--bg-card);
+}
+.project-card:hover p {
+    color: var(--bg-card);
+}
+.project-card:hover a {
+    color: var(--bg-card);
+}
+/* Light mode styles */
+body.light-mode .project-card {
+    background: var(--bg-card-light);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+body.light-mode .project-card:hover {
+    background: var(--accent);
+}
+body.light-mode .project-card:hover h3 {
+    color: var(--bg-light);
+}
+body.light-mode .project-card:hover p {
+    color: var(--bg-light);
+}
+body.light-mode .project-card:hover a {
+    color: var(--bg-light);
+}
+/* Raise project cards on hover */
 .project-card.fade-up-2:hover,
 .project-card.fade-up-3:hover,
 .project-card.fade-up-4:hover,
@@ -248,86 +288,40 @@ body.light-mode .card {
 .project-card.fade-up-6:hover,
 .project-card.fade-up-7:hover {
     transform: translateY(-18px);
-    transition: transform 0.6s ease, 
-				background 0.6s ease, 
-				opacity 0.6s ease !important;
+    transition: transform 0.6s ease, background 0.6s ease, opacity 0.6s ease !important;
 }
-
 .project-card.fade-up-2.visible,
 .project-card.fade-up-3.visible,
 .project-card.fade-up-4.visible,
 .project-card.fade-up-5.visible,
 .project-card.fade-up-6.visible,
 .project-card.fade-up-7.visible {
-    transition: transform 0.6s ease, 
-				background 0.6s ease, 
-				opacity 0.6s ease !important;
+    transition: transform 0.6s ease, background 0.6s ease, opacity 0.6s ease !important;
 }
-
-/* Raise and Lower Project Cards END */
-
-.project-card:hover h3 {
-	color: var(--bg-card);
-}
-
-body.light-mode .project-card:hover h3 {
-	color: var(--bg-light);
-}
-
-.project-card:hover a {
-	color: var(--bg-card);
-}
-
-/* card background color in light mode */
-body.light-mode .project-card {
-    background: var(--bg-card-light);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* card background color in light mode on HOVER */
-body.light-mode .project-card:hover {
-    transform: translateY(-10px);
-    background: var(--accent);
-}
-
-/* card Links color in light mode on card HOVER*/
-body.light-mode .project-card:hover a {
-    transform: translateY(-10px);
-    color: var(--bg-light);
-}
-
-/* card Text color in light mode on card HOVER*/
-body.light-mode .project-card:hover p {
-    color: var(--bg-light);
-}
-
-/* card Text color on card HOVER*/
-.project-card:hover p {
-    color: var(--bg-card);
-}
-
 #projects h2 {
-	margin-bottom: 1.2rem;
-	text-align: center;
-	font-size: var(--font-head);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-size: var(--font-head);
 }
-
 .project-card h3 {
     color: var(--accent);
     margin-bottom: 1rem;
-	font-size: var(--font2);
-}	
-
+    font-size: var(--font2);
+    margin-top: 0;
+}
+.project-card p:not(.tech) {
+    flex-grow: 1;
+}
 .tech {
     font-size: 0.9rem;
     opacity: 0.7;
     margin: 1rem 0;
+    margin-top: auto;
+    margin-bottom: 1rem;
 }
 
+/* Links container using flexbox */
 .project-card a {
-    display: inline-block;
-    margin-top: 1rem;
-    margin-right: 1rem;
     color: var(--accent);
     text-decoration: none;
     transition: opacity 0.3s;
@@ -337,9 +331,25 @@ body.light-mode .project-card:hover p {
     opacity: 0.7;
 }
 
-/* ---------- Scroll in PROJECTS ---------- */
+.project-card a:first-of-type {
+    margin-right: auto;
+}
 
-/* Project cards fade-up animation - INITIAL HIDDEN STATE */
+/* Create flex container for the links */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card > a {
+    display: inline-block;
+}
+
+.project-card > a:first-of-type ~ a {
+    margin-left: auto;
+}
+
+/* ---------- Scroll in PROJECTS ---------- */
 .fade-up-1,
 .fade-up-2,
 .fade-up-3,
@@ -350,66 +360,43 @@ body.light-mode .project-card:hover p {
     opacity: 0;
     transform: translateY(200px);
 }
-
-/* Staggered fade-up delays */
 .fade-up-1.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.2s, 
-		transform 0.8s ease 0.2s;
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
 }
-
 .fade-up-2.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.35s, 
-		transform 0.8s ease 0.35s;
+    transition: opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s;
 }
-
 .fade-up-3.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.5s, 
-		transform 0.8s ease 0.5s;
+    transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
 }
-
 .fade-up-4.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.65s, 
-		transform 0.8s ease 0.65s;
+    transition: opacity 0.8s ease 0.65s, transform 0.8s ease 0.65s;
 }
-
 .fade-up-5.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.35s, 
-		transform 0.8s ease 0.35s;
+    transition: opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s;
 }
-
 .fade-up-6.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.5s, 
-		transform 0.8s ease 0.5s;
+    transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
 }
-
-
 .fade-up-7.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: 
-		opacity 0.8s ease 0.65s, 
-		transform 0.8s ease 0.65s;
+    transition: opacity 0.8s ease 0.65s, transform 0.8s ease 0.65s;
 }
-
 /* ------------ Projects Section END ---------------- */
+
 
 /* ------ CONTACT FORM ------ */
 
