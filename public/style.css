@@ -459,7 +459,7 @@ body.light-mode #contact-form textarea {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
-    max-width: 180px;
+    max-width: 190px;
     width: 100%;
 	font-size: var(--font0);
 }
