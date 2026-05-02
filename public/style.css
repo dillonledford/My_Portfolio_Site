@@ -308,6 +308,7 @@ body.light-mode .project-card:hover a {
     margin-bottom: 1rem;
     font-size: var(--font2);
     margin-top: 0;
+	text-align: center;
 }
 .project-card p:not(.tech) {
     flex-grow: 1;
@@ -318,6 +319,7 @@ body.light-mode .project-card:hover a {
     margin: 1rem 0;
     margin-top: auto;
     margin-bottom: 1rem;
+	padding-top: 20px;
 }
 
 /* Links container using flexbox */
