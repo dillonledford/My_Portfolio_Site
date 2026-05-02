@@ -225,6 +225,7 @@ body.light-mode .card {
     gap: 2rem;
     grid-auto-rows: 1fr;
 }
+
 .project-card {
     background: var(--bg-card);
     padding: 2rem;
@@ -245,6 +246,7 @@ body.light-mode .card {
     color: var(--accent);
     text-decoration: none;
     transition: opacity 0.3s;
+	font-weight: bold;
 }
 
 .card-links a:hover {
