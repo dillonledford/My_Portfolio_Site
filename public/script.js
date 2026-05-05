@@ -27,17 +27,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Intersection Observer for scroll animations
 
 const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
+
+	// Move IN & OUT as you SCROLL - START ----NEW SCROLL
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');  // ← ADD THIS LINE
         }
     });
 }, observerOptions);
+
+	// Move IN & OUT as you SCROLL - END ----NEW SCROLL END
+
+// ORIGINAL - Come in as you SCROLL DOWN -----------------------
+// const observer = new IntersectionObserver((entries) => {
+    // entries.forEach(entry => {
+        // if (entry.isIntersecting) {
+            // entry.target.classList.add('visible');
+        // }
+    // });
+// }, observerOptions);
 
 // Wait for hero to finish first
 setTimeout(() => {
