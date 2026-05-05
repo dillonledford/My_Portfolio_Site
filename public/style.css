@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth !important;
+	overflow-x: hidden;
 }
 
 :root {
@@ -28,6 +29,7 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
+	overflow-x: hidden;
 }
 
 body.light-mode {
@@ -656,16 +658,16 @@ body.light-mode #contact-form button:hover {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 1.0s,  /* comes 0.3s after body-3 */
-        transform 0.8s ease 1.0s;
+        opacity 0.8s ease 1.1s,  /* comes 0.3s after body-3 */
+        transform 0.8s ease 1.1s;
 }
 
 .slide-in-left-body-3_4.visible {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 1.0s,  /* comes 0.3s after body-3 */
-        transform 0.8s ease 1.0s;
+        opacity 0.8s ease 1.2s,  /* comes 0.3s after body-3 */
+        transform 0.8s ease 1.2s;
 }
 
 
@@ -677,16 +679,16 @@ body.light-mode #contact-form button:hover {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 0.8s,  /* waits 0.4s */
-        transform 0.8s ease 0.8s;
+        opacity 0.8s ease 1.3s,  /* waits 0.4s */
+        transform 0.8s ease 1.3s;
 }
 
 .slide-in-left-body-4.visible {
     opacity: 1;
     transform: translateX(0px);
     transition: 
-        opacity 0.8s ease 0.9s,
-        transform 0.8s ease 0.9s;
+        opacity 0.8s ease 1.5s,
+        transform 0.8s ease 1.5s;
 }
 
 
