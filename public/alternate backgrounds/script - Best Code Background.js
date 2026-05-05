@@ -107,6 +107,8 @@ window.addEventListener('load', () => {
     }, 250);
 });
 
+
+
 // ====================================================
 // PARTICLE BACKGROUND — fade in/out style
 // ====================================================
@@ -146,30 +148,14 @@ class Particle {
             ? Math.random() * 20 + 5
             : Math.random() * 70 + 30;
 
-		const snippets = [
-			// HTML tags
-			'<div>', '<span>', '<body>', '<header>',
-			'<main>', '<nav>', '<footer>', '<section>', '<article>',
-			'<button>', '<input>', '<form>', '<a>', '<img>',
-			
-			// CSS snippets
-			'display:', 'flex', 'grid', 'position:', 'color:',
-			'.class', '#id', ':hover', ':active', 'rgba()',
-			'margin:', 'padding:', 'transform:', '@media', 'linear-gradient',
-			
-			// JavaScript
-			'const', 'let', 'function', 'return', '=>',
-			'async', 'await', 'if', 'else', 'forEach',
-			'{ }', '( )', '[ ]', '&&', '||', '===',
-			'console.log()', 'document.', 'addEventListener',
-			
-			// Web dev terms
-			'HTTP', 'API', 'JSON', 'DOM', '404', '200',
-			'GET', 'POST', 'fetch', 'npm', 'git commit',
-			
-			// Symbols
-			'...', '??', '?.', '++', '--', '=>', '!='
-		];
+        const snippets = [
+            'const x = 0;', 'let i = 0;', 'return null;',
+            'if (err)', '() => {}', 'async/await',
+            'npm install', 'git commit', '404', '{ }',
+            '=>', '...rest', 'undefined', 'console.log()',
+            '<div>', '</div>', 'import', 'export default',
+            '&&', '||', '===', 'try {', '} catch(e)',
+        ];
         this.text = snippets[Math.floor(Math.random() * snippets.length)];
 
 // PARTICLE OPACITY - START
@@ -230,17 +216,10 @@ class Particle {
     }
 
     draw() {
-		
-	// *** Light & Dark Color Switch - `Light Color` : `Dark Color` *** //
         const isLight = document.body.classList.contains('light-mode');
-        const color = isLight ? `42, 42, 42` : `245, 245, 245`;
+        const color = isLight ? `0, 0, 0` : `220, 220, 220`;
 
-
-        const fontSize = Math.round(this.size * 0.2 + 14);
-		
-		// number + 12 = 12 controls minimum size
-		// 0.6 + number = 0.6 controls maximum size
-
+        const fontSize = Math.round(this.size * 0.4 + 8);
         ctx.font = `${fontSize}px monospace`;
         ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
         ctx.fillText(this.text, this.x, this.y);
@@ -271,6 +250,10 @@ window.addEventListener('resize', () => {
         canvas.height = document.documentElement.scrollHeight;
         init();
     }, 250);
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) animate();
 });
 
 init();
