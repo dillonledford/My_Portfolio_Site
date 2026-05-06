@@ -6,15 +6,17 @@ html {
 :root {
     --bg-dark: #212121;
     --bg-card: #313131;
-    --text-light: #f5f5f5;
+    --text-light: #f0f0f0;
     --text-dark: #2a2a2a;
-    --accent: #23b5d0;
-    --bg-light: #f5f5f5;
-    --bg-card-light: #ffffff;
+    --bg-light: #f0f0f0;
+    --bg-card-light: #f0f0f0;
 	--font0: 1.1rem;
 	--font1: 1.2rem;
 	--font2: 1.3rem;
 	--font-head: 2rem;
+	
+	--blue: #23b5d0;
+	--pink: #e95090;
 }
 
 * {
@@ -37,11 +39,12 @@ body.light-mode {
     color: var(--text-dark);
 }
 
+
 #navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(49, 49, 49, 0.345);
+    background: rgba(33, 33, 33, 0.345);
     backdrop-filter: blur(10px);
     padding: 1rem 2rem;
     z-index: 1000;
@@ -49,7 +52,7 @@ body.light-mode {
 }
 
 body.light-mode #navbar {
-    background: rgba(255, 255, 255, 0.345);
+    background: rgba(240, 240, 240, 0.345);
 }
 
 .nav-content {
@@ -60,10 +63,41 @@ body.light-mode #navbar {
     align-items: center;
 }
 
+/* Navigation Menu Links */
 .nav-content a {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s;
+    /* Add these lines */
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+
+
+/* Navigation Menu Links - HOVER */
+.nav-content a:hover {
+	color: var(--blue);
+}
+
+body.light-mode .nav-content a:hover {
+	color: var(--pink);
+}
+
+
+/* Stagger the animation for each link */
+.nav-content a:nth-child(1) { animation-delay: 0.1s; }
+.nav-content a:nth-child(2) { animation-delay: 0.2s; }
+.nav-content a:nth-child(3) { animation-delay: 0.3s; }
+.nav-content a:nth-child(4) { animation-delay: 0.4s; }
+.nav-content a:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 body.light-mode .nav-content a {
@@ -71,18 +105,63 @@ body.light-mode .nav-content a {
 }
 
 .nav-content a:hover {
-    color: var(--accent);
+    color: var(--blue);
 }
 
+/* Theme toggle animation */
 .theme-toggle {
     margin-left: auto;
     position: relative;
     width: 60px;
     height: 30px;
-    background: var(--bg-card);
+    background: var(--blue);
     border-radius: 15px;
     cursor: pointer;
     transition: background 0.3s ease;
+    /* Add initial hidden state */
+    opacity: 0;
+    transform: translateX(90px);
+    animation: slideInRight 0.6s ease-out forwards;
+    animation-delay: 0.6s; /* Starts after the last nav link (0.5s + 0.1s) */
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Resume button styling */
+.nav-content a.resume {
+    border: 2px solid var(--blue);
+    padding: 0rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s;
+	background: var(--blue);
+	color: var(--text-dark);
+}
+
+
+body.light-mode .nav-content a.resume {
+    border: 2px solid var(--pink);
+}
+
+
+.nav-content a.resume:hover {
+    color: var(--blue);
+	background: none;
+}
+
+/* Light mode resume button */
+body.light-mode .nav-content a.resume {
+    background: var(--pink);
+    color: var(--text-light);
+}
+
+body.light-mode .nav-content a.resume:hover {
+    background: none;
+    color: var(--pink);
 }
 
 #theme-toggle:hover {
@@ -90,7 +169,7 @@ body.light-mode .nav-content a {
 }
 
 body.light-mode .theme-toggle {
-    background: #ddd;
+	background: var(--pink);
 }
 
 .theme-toggle input {
@@ -103,8 +182,8 @@ body.light-mode .theme-toggle {
     left: 3px;
     width: 24px;
     height: 24px;
-    background: var(--accent);
-    border-radius: 50%;
+    background: var(--text-light);
+    border-radius: 30px;
     transition: transform 0.3s ease;
 }
 
@@ -156,7 +235,7 @@ section#contact {
 
 #hero h2 {
     font-size: var(--font-head);
-    color: var(--accent);
+    color: var(--blue);
     margin-bottom: 2rem;
 }
 
@@ -166,29 +245,33 @@ section#contact {
     display: flex;
     gap: 2rem;
     justify-content: center;
-	font-size: var(--font1);
+	font-size: var(--font2);
 }
 
 .links a {
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 0.5rem 1.5rem;
-    border: 2px solid var(--accent);
-    border-radius: 16px;
-    transition: all 0.3s;
-}
-
-body.light-mode .links a {
     color: var(--text-dark);
-}
-
-body.light-mode .links a:hover {
-    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--blue);
+    border-radius: 30px;
+    transition: all 0.3s;
+	background: var(--blue);
 }
 
 .links a:hover {
-    background: var(--accent);
-    color: var(--text-dark);
+    color: var(--blue);
+	background: none;
+}
+
+body.light-mode .links a {
+    color: var(--text-light);
+	border: 2px solid var(--pink);
+	background-color: var(--pink);
+}
+
+body.light-mode .links a:hover {
+    color: var(--pink);
+	background: none;
 }
 
 /* ------ */
@@ -200,28 +283,27 @@ body.light-mode .links a:hover {
 	padding-bottom: 1rem;
 	padding-left: 2rem;
 	padding-right: 2rem;
-    border-radius: 20px;
+    border-radius: 30px;
     margin-bottom: 2rem;
 	font-size: var(--font1);
 }
-
 
 .card li {
 	padding-top: 0.4rem;
 	padding-bottom:0.4rem;
 }
 
-
-body.light-mode .card {
-    /* background: var(--bg-card-light); */
+body.light-mode .card h3 {
+	color: var(--pink);
 }
 
 .card h2 {
-	color: var(--accent);
+	color: var(--blue);
 }
 
 .card h3 {
-	color: var(--accent);
+	color: var(--blue);
+	font-size: 1.6rem;
 }
 
 /* ------------ Projects Section ---------------- */
@@ -236,11 +318,19 @@ body.light-mode .card {
     background: var(--bg-card);
     padding: 2rem;
     font-size: 1.1rem;
-    border-radius: 20px;
+	
+	/* keeps project card text white after mode toggle */
+	color: var(--text-light);
+	
+    border-radius: 16px;
     transition: transform 0.8s ease, background 0.8s ease;
     align-self: stretch;
     display: flex;
     flex-direction: column;
+}
+
+body.light-mode .project-card h3 {
+	color: var(--pink);
 }
 
 .card-links {
@@ -249,10 +339,15 @@ body.light-mode .card {
 }
 
 .card-links a {
-    color: var(--accent);
+    color: var(--blue);
     text-decoration: none;
     transition: opacity 0.3s;
 	font-weight: bold;
+	font-size: var(--font1);
+}
+
+body.light-mode .card-links a {
+    color: var(--pink);
 }
 
 .card-links a:hover {
@@ -260,7 +355,7 @@ body.light-mode .card {
 }
 
 .project-card:hover {
-    background: var(--accent);
+    background: var(--blue);
 }
 .project-card:hover h3 {
     color: var(--bg-card);
@@ -271,13 +366,16 @@ body.light-mode .card {
 .project-card:hover a {
     color: var(--bg-card);
 }
-/* Light mode styles */
+
+/* Light mode styles - project drop shadow*/
 body.light-mode .project-card {
-    background: var(--bg-card-light);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--bg-card);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
+
+
 body.light-mode .project-card:hover {
-    background: var(--accent);
+    background: var(--pink);
 }
 body.light-mode .project-card:hover h3 {
     color: var(--bg-light);
@@ -312,9 +410,9 @@ body.light-mode .project-card:hover a {
     font-size: var(--font-head);
 }
 .project-card h3 {
-    color: var(--accent);
+    color: var(--blue);
     margin-bottom: 1rem;
-    font-size: var(--font2);
+    font-size: 1.6rem;
     margin-top: 0;
 	text-align: center;
 }
@@ -332,7 +430,7 @@ body.light-mode .project-card:hover a {
 
 /* Links container using flexbox */
 .project-card a {
-    color: var(--accent);
+    color: var(--blue);
     text-decoration: none;
     transition: opacity 0.3s;
 }
@@ -413,7 +511,7 @@ body.light-mode .project-card:hover a {
 .contact-card {
     /* background: var(--bg-card); */
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 16px;
     margin-bottom: 2rem;
 	font-size: var(--font1);
 }
@@ -423,6 +521,7 @@ body.light-mode .project-card:hover a {
     flex-direction: column;
     gap: 1rem;
     align-items: center; /* This centers the inputs */
+	margin-top: 0.9rem;
 }
 
 #contact h2 {
@@ -457,40 +556,36 @@ body.light-mode #contact-form textarea {
 }
 
 #contact-form button {
-    padding: 1rem 2rem;
-    background: transparent;
-    border: 2px solid var(--accent);
-    border-radius: 16px;
-    color: var(--text-light);
-    font-size: 1rem;
+	padding: 0.8rem 1rem;
+    background: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 30px;
+    color: var(--text-dark);
+	font-family: 'Rubik';
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     max-width: 190px;
     width: 100%;
-	font-size: var(--font0);
+	font-size: var(--font2);
 }
 
 #contact-form button:hover {
-    background: var(--accent);
-    color: var(--text-light);
-}
-
-#contact-form button:hover {
-    background: var(--accent);
-    color: var(--text-dark);
+    background: none;
+    color: var(--blue);
 }
 
 body.light-mode #contact-form button {
-    color: var(--text-dark);
+    color: var(--text-light);
+	border: 2px solid var(--pink);
+	background-color: var(--pink);
 }
 
 body.light-mode #contact-form button:hover {
-    background: var(--accent);
-    color: var(--text-light);
+    background: none;
+    color: var(--pink);
 }
 
 /* ------ CONTACT END ----- */
-
 
 .alternate-subtitle {
 	font-size: 1.3rem;
@@ -508,6 +603,10 @@ body.light-mode #contact-form button:hover {
 #hero h2 {
     opacity: 0;
     transform: translateY(150px);
+}
+
+body.light-mode #hero h2 {
+	color: var(--pink);
 }
 
 #hero .links {
@@ -691,10 +790,7 @@ body.light-mode #contact-form button:hover {
         transform 0.8s ease 1.5s;
 }
 
-
-
 /* ============ Card Titles & Bodies END ================= */
-
 
 /* SPACING - Titles */
 .slide-in-left-title-1,
@@ -914,6 +1010,7 @@ body.light-mode #contact-form button:hover {
         padding: 0.8rem 1.5rem;
         max-width: 160px;
         font-size: 1rem;
+		
     }
     
     /* reCAPTCHA scaling */
@@ -957,9 +1054,6 @@ body.light-mode #contact-form button:hover {
     .slide-in-left-body-4 {
         transform: translateX(-100px);
     }
-	
-	
-	
 	
 	#about {
 		scroll-margin-top: 0px;
