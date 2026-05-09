@@ -148,7 +148,7 @@ const typingEffect = () => {
   let isFirstCycle = true; // Skip deletion on first cycle
   const typingSpeed = 100; // ms per character
   const deletingSpeed = 60; // ms per character (faster backspace)
-  const delayBetweenTexts = 3100; // ms to wait before backspacing
+  const delayBetweenTexts = 3200; // ms to wait before backspacing
 
   const updateDisplay = () => {
     const currentText = texts[textIndex];
@@ -386,43 +386,3 @@ window.addEventListener('resize', () => {
 
 init();
 animate();
-
-
-
-// ====================================================
-// MOBILE MENU
-// ====================================================
-
-const hamburger = document.getElementById('hamburger');
-const mobileDrawer = document.getElementById('mobile-drawer');
-const mobileOverlay = document.getElementById('mobile-overlay');
-
-function openMenu() {
-    hamburger.classList.add('open');
-    mobileDrawer.classList.add('open');
-    mobileOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeMenu() {
-    hamburger.classList.remove('open');
-    mobileDrawer.classList.remove('open');
-    mobileOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.contains('open') ? closeMenu() : openMenu();
-});
-
-// Close when overlay is clicked
-mobileOverlay.addEventListener('click', closeMenu);
-
-// Close when a drawer link is clicked
-mobileDrawer.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
-
-// MOBILE MENU END
-
-

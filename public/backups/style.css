@@ -92,7 +92,6 @@ body.light-mode .nav-content a:hover {
 .nav-content a:nth-child(3) { animation-delay: 0.3s; }
 .nav-content a:nth-child(4) { animation-delay: 0.4s; }
 .nav-content a:nth-child(5) { animation-delay: 0.5s; }
-.nav-content a.resume       { animation-delay: 0.6s; }
 
 @keyframes slideInLeft {
     to {
@@ -882,21 +881,5 @@ body.light-mode #hero h2 {
         opacity: 0;
 		animation: blink 1s step-start infinite;
     }
-}
-
-
-/***  MOBILE FIXES ***/
-
-/* === MOBILE MENU — default hidden on desktop === */
-.hamburger {
-    display: none;
-}
-
-.mobile-drawer {
-    display: none;
-}
-
-.mobile-overlay {
-    display: none;
 }
 
