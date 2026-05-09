@@ -883,19 +883,3 @@ body.light-mode #hero h2 {
     }
 }
 
-
-/***  MOBILE FIXES ***/
-
-/* === MOBILE MENU — default hidden on desktop === */
-.hamburger {
-    display: none;
-}
-
-.mobile-drawer {
-    display: none;
-}
-
-.mobile-overlay {
-    display: none;
-}
-
