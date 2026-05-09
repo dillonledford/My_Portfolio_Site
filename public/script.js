@@ -128,6 +128,7 @@ window.addEventListener('load', () => {
         document.querySelector('#hero h1').classList.add('fade-in-up');
         document.querySelector('#hero h2').classList.add('fade-in-up');
         document.querySelector('#hero .links').classList.add('fade-in-up');
+		document.querySelector('#hero .links-mobile').classList.add('fade-in-up');
     }, 250);
 });
 
@@ -148,7 +149,7 @@ const typingEffect = () => {
   let isFirstCycle = true; // Skip deletion on first cycle
   const typingSpeed = 100; // ms per character
   const deletingSpeed = 60; // ms per character (faster backspace)
-  const delayBetweenTexts = 3200; // ms to wait before backspacing
+  const delayBetweenTexts = 3100; // ms to wait before backspacing
 
   const updateDisplay = () => {
     const currentText = texts[textIndex];

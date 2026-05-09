@@ -68,7 +68,7 @@ body.light-mode #navbar {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s;
-    /* Add these lines */
+	
     opacity: 0;
     transform: translateX(-30px);
     animation: slideInLeft 0.6s ease-out forwards;
@@ -92,6 +92,7 @@ body.light-mode .nav-content a:hover {
 .nav-content a:nth-child(3) { animation-delay: 0.3s; }
 .nav-content a:nth-child(4) { animation-delay: 0.4s; }
 .nav-content a:nth-child(5) { animation-delay: 0.5s; }
+.nav-content a.resume       { animation-delay: 0.6s; }
 
 @keyframes slideInLeft {
     to {
@@ -899,3 +900,11 @@ body.light-mode #hero h2 {
     display: none;
 }
 
+<<<<<<< HEAD
+=======
+/* Mobile hero links — hidden on desktop */
+.links-mobile {
+    display: none;
+}
+
+>>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
