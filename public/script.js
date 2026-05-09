@@ -128,6 +128,7 @@ window.addEventListener('load', () => {
         document.querySelector('#hero h1').classList.add('fade-in-up');
         document.querySelector('#hero h2').classList.add('fade-in-up');
         document.querySelector('#hero .links').classList.add('fade-in-up');
+		document.querySelector('#hero .links-mobile').classList.add('fade-in-up');
     }, 250);
 });
 

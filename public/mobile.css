@@ -1,6 +1,6 @@
 /* ========================================= */
-/* MOBILE RESPONSIVE STYLES - ADD TO END OF style.css */
-/* Desktop styles remain completely untouched above */
+/* MOBILE RESPONSIVE STYLES */
+/* Desktop styles remain untouched */
 /* ========================================= */
 
 @media (max-width: 768px) {
@@ -52,6 +52,19 @@
         text-align: center;
         font-size: 1rem;
     }
+	
+	
+	
+	
+	.mobile-resume-link {
+        width: 120px;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+
+
+
     
     /* === SECTIONS === */
     section {
@@ -396,11 +409,15 @@
 
     /* --- Resume pill button inside drawer --- */
     .mobile-drawer a.resume {
-        border: 2px solid var(--blue);
-        padding: 0.4rem 1.2rem;
-        border-radius: 30px;
-        background: var(--blue);
-        color: var(--text-dark);
+		
+		/* uncomment & remove other color for pill return */
+        /* border: 2px solid var(--blue); */
+        /* padding: 0.4rem 1.2rem; */
+        /* border-radius: 30px; */
+        /* background: var(--blue); */
+        /* color: var(--text-dark); */
+		
+		color: var(--text-light);
         text-align: center;
         width: fit-content;
         transition: all 0.3s;
@@ -429,5 +446,62 @@
 		animation: slideInLeft 0.6s ease-out forwards;
 		animation-delay: 0.6s;
 	}
+	
+	
+	
+	
+	/* Swap hero link sets on mobile */
+	.links {
+		display: none;
+	}
+
+	.links-mobile {
+		display: flex;
+		gap: 1.5rem;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.links-mobile a {
+		color: var(--text-dark);
+		text-decoration: none;
+		padding: 0.5rem 1rem;
+		border: 2px solid var(--blue);
+		border-radius: 30px;
+		transition: all 0.3s;
+		background: var(--blue);
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	.links-mobile a:hover {
+		color: var(--blue);
+		background: none;
+	}
+
+	body.light-mode .links-mobile a {
+		border: 2px solid var(--pink);
+		background: var(--pink);
+		color: var(--text-light);
+	}
+
+	body.light-mode .links-mobile a:hover {
+		background: none;
+		color: var(--pink);
+	}
+		
+	.links-mobile {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+
+	.links-mobile.fade-in-up {
+		opacity: 1;
+		transform: translateY(0px);
+		transition: 
+			opacity 0.8s ease 0.6s,
+			transform 0.8s ease 0.6s;
+	}
+		
 
 }
