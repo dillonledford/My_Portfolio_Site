@@ -131,6 +131,93 @@ window.addEventListener('load', () => {
     }, 250);
 });
 
+// Page Load ---------- END ----------- //
+
+
+
+// ====================================================
+// TYPING EFFECT FOR HERO SUBTITLE
+// ====================================================
+
+const typingEffect = () => {
+  const h2 = document.querySelector("#hero h2");
+  const texts = ["Software Developer", "Web Designer"];
+  let textIndex = 0;
+  let charIndex = texts[0].length; // Start at end of first text
+  let isDeleting = false;
+  let isFirstCycle = true; // Skip deletion on first cycle
+  const typingSpeed = 100; // ms per character
+  const deletingSpeed = 60; // ms per character (faster backspace)
+  const delayBetweenTexts = 3200; // ms to wait before backspacing
+
+  const updateDisplay = () => {
+    const currentText = texts[textIndex];
+    const displayText = currentText.substring(0, charIndex);
+    
+    // Remove old cursor
+    const oldCursor = h2.querySelector('.cursor');
+    if (oldCursor) oldCursor.remove();
+    
+    // Set text and add cursor
+    h2.textContent = displayText || '\u00A0';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    cursor.textContent = '_';
+    h2.appendChild(cursor);
+  };
+
+  const type = () => {
+    const currentText = texts[textIndex];
+    
+    if (isDeleting) {
+      // Backspacing
+      charIndex--;
+      updateDisplay();
+      
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, 500); // Short pause before typing next word
+        return;
+      }
+      setTimeout(type, deletingSpeed);
+    } else {
+      // Typing
+      if (isFirstCycle) {
+        // First cycle: just move to backspacing without typing
+        isFirstCycle = false;
+        isDeleting = true;
+        setTimeout(type, delayBetweenTexts);
+        return;
+      }
+      
+      charIndex++;
+      updateDisplay();
+      
+      if (charIndex === currentText.length) {
+        // Finished typing, wait before backspacing
+        setTimeout(() => {
+          isDeleting = true;
+          type();
+        }, delayBetweenTexts);
+        return;
+      }
+      setTimeout(type, typingSpeed);
+    }
+  };
+
+  type();
+};
+
+// Start typing effect after hero animations finish (around 800ms)
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(typingEffect, 1200); // Adjust this number to match your hero animation duration
+});
+
+// Typing Effect -------- END ------------ //
+
+
+
 // ====================================================
 // PARTICLE BACKGROUND — fade in/out style
 // ====================================================

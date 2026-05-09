@@ -867,6 +867,21 @@ body.light-mode #hero h2 {
 #contact {
 }
 
+
+
+/* Cursor Animation */
+
+.cursor {
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+		animation: blink 1s step-start infinite;
+    }
+}
+
 /* ========================================= */
 /* MOBILE RESPONSIVE STYLES - ADD TO END OF style.css */
 /* Desktop styles remain completely untouched above */
