@@ -1,11 +1,8 @@
 /* ========================================= */
-<<<<<<< HEAD
 /* MOBILE RESPONSIVE STYLES - ADD TO END OF style.css */
 /* Desktop styles remain completely untouched above */
-=======
 /* MOBILE RESPONSIVE STYLES */
 /* Desktop styles remain untouched */
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
 /* ========================================= */
 
 @media (max-width: 768px) {
@@ -57,15 +54,12 @@
         text-align: center;
         font-size: 1rem;
     }
-<<<<<<< HEAD
-=======
 
 	.mobile-resume-link {
         width: 120px;
         text-align: center;
         font-size: 1rem;
     }
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
     
     /* === SECTIONS === */
     section {
@@ -215,11 +209,8 @@
 @media (max-width: 480px) {
 	
 	.theme-toggle input:checked + .slider {
-<<<<<<< HEAD
 		transform: translateX(16px);
-=======
 		transform: translateX(30px);
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
 	}
     
     #hero h1 {
@@ -414,13 +405,11 @@
 
     /* --- Resume pill button inside drawer --- */
     .mobile-drawer a.resume {
-<<<<<<< HEAD
         border: 2px solid var(--blue);
         padding: 0.4rem 1.2rem;
         border-radius: 30px;
         background: var(--blue);
         color: var(--text-dark);
-=======
 		
 		/* uncomment & remove other color for pill return */
         /* border: 2px solid var(--blue); */
@@ -430,7 +419,6 @@
         /* color: var(--text-dark); */
 		
 		color: var(--text-light);
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
         text-align: center;
         width: fit-content;
         transition: all 0.3s;
@@ -442,23 +430,18 @@
     }
 
     body.light-mode .mobile-drawer a.resume {
-<<<<<<< HEAD
         border: 2px solid var(--pink);
         background: var(--pink);
         color: var(--text-light);
-=======
         /* border: 2px solid var(--pink); */
         /* background: var(--pink); */
         /* color: var(--text-light); */
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
     }
 
     body.light-mode .mobile-drawer a.resume:hover {
         background: none;
         color: var(--pink);
     }
-<<<<<<< HEAD
-=======
 	
 	/* hamburger slide in */
 	.hamburger {
@@ -523,7 +506,5 @@
 			opacity 0.8s ease 0.6s,
 			transform 0.8s ease 0.6s;
 	}
-		
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
 
 }

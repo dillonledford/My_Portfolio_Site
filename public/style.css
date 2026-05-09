@@ -900,11 +900,8 @@ body.light-mode #hero h2 {
     display: none;
 }
 
-<<<<<<< HEAD
-=======
+
 /* Mobile hero links — hidden on desktop */
 .links-mobile {
     display: none;
 }
-
->>>>>>> 998d36dd8d27b3b8c2c94e671c4fb62c8e3b6207
