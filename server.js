@@ -35,14 +35,28 @@ app.post('/api/contact', async (req, res) => {
         return res.status(500).json({ error: 'Captcha verification error' });
     }
 
-    // Send email
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
-    });
+    // Send email - Backup original
+    // const transporter = nodemailer.createTransport({
+        // service: 'gmail',
+        // auth: {
+            // user: process.env.EMAIL_USER,
+            // pass: process.env.EMAIL_PASS
+        // }
+    // });
+	
+	
+	// Send email - Backup original
+	const transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 587,
+		secure: false,
+		family: 4,
+		auth: {
+			user: process.env.EMAIL_USER,
+			pass: process.env.EMAIL_PASS
+		}
+	});
+
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
