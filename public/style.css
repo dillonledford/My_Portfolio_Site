@@ -91,7 +91,9 @@ body.light-mode .nav-content a:hover {
 .nav-content a:nth-child(2) { animation-delay: 0.2s; }
 .nav-content a:nth-child(3) { animation-delay: 0.3s; }
 .nav-content a:nth-child(4) { animation-delay: 0.4s; }
-.nav-content a:nth-child(5) { animation-delay: 0.5s; }
+
+.nav-content a:nth-child(5):not(.resume) { animation-delay: 0.5s; }
+
 .nav-content a.resume       { animation-delay: 0.6s; }
 
 @keyframes slideInLeft {
@@ -141,6 +143,20 @@ body.light-mode .nav-content a {
     transition: all 0.3s;
 	background: var(--blue);
 	color: var(--text-dark);
+}
+
+
+/* resume button flicker load fix */
+.nav-content a.resume {
+    border: 2px solid var(--blue);
+    padding: 0rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s;
+    background: var(--blue);
+    color: var(--text-dark);
+    /* ADD THESE TWO LINES: */
+    opacity: 0;
+    transform: translateX(-30px);
 }
 
 
