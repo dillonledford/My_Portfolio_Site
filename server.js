@@ -41,7 +41,7 @@ app.post('/api/contact', async (req, res) => {
         await resend.emails.send({
             from: 'contact@dillonledford.com',
             to: 'contact@dillonledford.com',
-            subject: `Direct Message: ${name} \n(${email})`,
+            subject: `Direct Message: ${name} (${email})`,
             text: `Name: ${name}\nEmail: ${email}\n\n${message}`
         });
         res.json({ success: true });
