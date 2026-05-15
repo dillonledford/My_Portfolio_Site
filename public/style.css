@@ -135,35 +135,25 @@ body.light-mode .nav-content a {
     }
 }
 
-/* Resume button styling */
+
+
+/* RESUME NAVBAR BUTTON */
 .nav-content a.resume {
-    border: 2px solid var(--blue);
-    padding: 0rem 1rem;
-    border-radius: 30px;
-    transition: all 0.3s;
+	border: 2px solid var(--blue);
 	background: var(--blue);
-	color: var(--text-dark);
-}
-
-
-/* resume button flicker load fix */
-.nav-content a.resume {
-    border: 2px solid var(--blue);
-    padding: 0rem 1rem;
-    border-radius: 30px;
-    transition: all 0.3s;
-    background: var(--blue);
+	border-radius: 30px;
+	padding: 0rem 0.8rem;
     color: var(--text-dark);
-    /* ADD THESE TWO LINES: */
     opacity: 0;
     transform: translateX(-30px);
 }
 
-
 body.light-mode .nav-content a.resume {
     border: 2px solid var(--pink);
+	background: var(--pink);
+	border-radius: 30px;
+	padding: 0rem 0.8rem;
 }
-
 
 .nav-content a.resume:hover {
     color: var(--blue);
@@ -180,6 +170,10 @@ body.light-mode .nav-content a.resume:hover {
     background: none;
     color: var(--pink);
 }
+/* resume navbar button end */
+
+
+
 
 #theme-toggle:hover {
     opacity: 0.8;
