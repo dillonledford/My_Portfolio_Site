@@ -1,12 +1,11 @@
-const dns = require('dns');
-dns.setDefaultResultOrder('ipv4first');
 const express = require('express');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const path = require('path');
 const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Middleware
 app.use(express.json());
@@ -37,25 +36,14 @@ app.post('/api/contact', async (req, res) => {
         return res.status(500).json({ error: 'Captcha verification error' });
     }
 
-    // Send email - Backup original
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
-    });
-
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
-		subject: `Contact: ${name} (${email})`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    };
-
+    // Send email
     try {
-        await transporter.sendMail(mailOptions);
+        await resend.emails.send({
+            from: 'contact@dillonledford.com',
+            to: 'contact@dillonledford.com',
+            subject: `Contact: ${name} (${email})`,
+            text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        });
         res.json({ success: true });
     } catch (error) {
         console.error('Email error:', error);
@@ -63,8 +51,7 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Keep Render Site Alive - No Spindown --- Script Start ---
-
+// Keep Render alive - ping every 14 minutes
 function keepAlive() {
     if (process.env.NODE_ENV !== 'development') {
         setTimeout(() => {
@@ -74,14 +61,12 @@ function keepAlive() {
                 } catch (error) {
                     // Ignore errors
                 }
-            }, 14 * 60 * 1000); // ping every 14 minutes
-        }, 30000); // wait 30 seconds for server to start
+            }, 14 * 60 * 1000);
+        }, 30000);
     }
 }
 
 keepAlive();
-
-// Keep Render Site Alive - No Spindown --- Script End ---
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
