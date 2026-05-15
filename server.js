@@ -1,3 +1,5 @@
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
 const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -43,20 +45,25 @@ app.post('/api/contact', async (req, res) => {
             // pass: process.env.EMAIL_PASS
         // }
     // });
+
 	
-	
-	// Send email - Backup original
+// ------ Send email  --------------  //
 	const transporter = nodemailer.createTransport({
 		host: 'smtp.gmail.com',
 		port: 587,
 		secure: false,
-		family: 4,
 		auth: {
 			user: process.env.EMAIL_USER,
 			pass: process.env.EMAIL_PASS
-		}
+		},
+		tls: {
+			rejectUnauthorized: false
+		},
+		dnsTimeout: 10000,
+		socketTimeout: 10000,
+		greetingTimeout: 10000
 	});
-
+// -------- email end ----//
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
